@@ -1,11 +1,11 @@
-import { StyleSelect } from "./StyleSelect"
 
 export function Select({ onAction }) {
 
     return(
-        <StyleSelect onChange={(e) => onAction(e.target.value)}>
+        <select onChange={(e) => onAction(e.target.value)}>
+            <option defaultValue=""  >Selecione o tipo</option>
             <option value="entrada">Entrada</option>
             <option value="saida">Saída</option>
-        </StyleSelect>
+        </select>
     )
 }
