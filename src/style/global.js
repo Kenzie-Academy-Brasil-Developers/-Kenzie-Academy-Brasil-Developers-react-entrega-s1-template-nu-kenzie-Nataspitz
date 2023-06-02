@@ -83,15 +83,19 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
 
+#titleDefault{
+    margin-top: 20px;
+    font-size: var(--font-sizeTitle2);
+}
+
     @media (min-width: 768px){
         #left{
-            width: 30%;
+            width: 60%;
             min-width: 260px;
         }
 
         #right{
-            width: 50%;
-            border: 1px solid;
+            width: 100%;
             margin: 0;
         }
     }

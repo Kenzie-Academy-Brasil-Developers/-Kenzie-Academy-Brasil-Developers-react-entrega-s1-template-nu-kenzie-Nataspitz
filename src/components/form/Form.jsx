@@ -12,18 +12,19 @@ export function Form({ setTransitionList, transitionList, sumValue }) {
         transition: "",
         
     })
-    console.log(transitionList);
+
 
     function addTransition() {
         setTransitionList([...transitionList, {...form,  id: uuidv4()}])
         const valueNumber = form.transition === "entrada"
         ? Number(form.value) 
         : Number(form.value) * -1
-        console.log(valueNumber, "number");
+    
         sumValue(valueNumber, transitionList)
-        console.log(transitionList);
+  
     }
-    console.log(transitionList);
+   
+   
     
 
     function submit(e) {

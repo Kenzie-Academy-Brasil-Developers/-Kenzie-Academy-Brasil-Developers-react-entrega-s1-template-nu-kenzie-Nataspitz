@@ -12,26 +12,29 @@ import { List } from './components/list/List'
 function App() {
   const [transitionList, setTransitionList] = useState([])
   const [totalValue, setTotalValue] = useState(0)
-  console.log(totalValue);
+
   function sumValue(newValue, list) {
-   
+    
     const sum = list.reduce((accTransition, transition) => {
+
       let value = Number(transition.value)
       const transitionType = transition.transition
       
       transitionType.toLowerCase() === "entrada" 
       ? value = value
       : value = value * -1
-
+      
       const result =  accTransition +value;
       return result 
     },0)
+
     
     list.length > 0
     ? setTotalValue(sum + newValue)
     : setTotalValue(newValue )
   }  
 
+  console.log(totalValue, "app");
 
   return (
     <>
@@ -49,7 +52,7 @@ function App() {
             </section>
             <section id='right'>
               <h3>Resumo financeiro</h3>
-              <List transitionList={transitionList}  setTransitionList={setTransitionList}/>
+              <List transitionList={transitionList}  setTransitionList={setTransitionList}  totalValue={totalValue} sumValue={sumValue} setTotalValue={setTotalValue}/>
             </section>
           </Container>
         </main>

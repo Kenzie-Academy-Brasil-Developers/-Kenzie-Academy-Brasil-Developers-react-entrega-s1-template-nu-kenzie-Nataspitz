@@ -1,7 +1,7 @@
 import { StyleButton } from "./StyleButton";
 
 
-export function Button({children, sumValue}) {
+export function Button({children}) {
     return(
         <StyleButton>
             { children }
