@@ -11,30 +11,6 @@ import { List } from './components/list/List'
 
 function App() {
   const [transitionList, setTransitionList] = useState([])
-  const [totalValue, setTotalValue] = useState(0)
-console.log(totalValue, "total value");
-  function sumValue(newValue, list) {
-    
-    const sum = list.reduce((accTransition, transition) => {
-
-      let value = Number(transition.value)
-      const transitionType = transition.transition
-      
-      transitionType.toLowerCase() === "entrada" 
-      ? value = value
-      : value = value * -1
-      
-      const result =  accTransition +value;
-      return result 
-    },0)
-
-    
-    list.length > 0
-    ? setTotalValue(sum + newValue)
-    : setTotalValue(newValue )
-  }  
-
-  
 
   return (
     <>
@@ -47,12 +23,12 @@ console.log(totalValue, "total value");
         <main>
           <Container>
             <section id='left'>
-              <Form setTransitionList={setTransitionList} transitionList={transitionList}  sumValue={sumValue}/>
-              <Total  transitionList={transitionList}  totalValue={totalValue} />
+              <Form setTransitionList={setTransitionList}   />
+              <Total  transitionList={transitionList}   />
             </section>
             <section id='right'>
               <h3>Resumo financeiro</h3>
-              <List transitionList={transitionList}  setTransitionList={setTransitionList}  totalValue={totalValue} sumValue={sumValue} setTotalValue={setTotalValue}/>
+              <List transitionList={transitionList}  setTransitionList={setTransitionList}  />
             </section>
           </Container>
         </main>

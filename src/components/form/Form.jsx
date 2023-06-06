@@ -5,7 +5,8 @@ import { Select } from "../select/Select";
 import { v4 as uuidv4 } from "uuid";
 
 
-export function Form({ setTransitionList, transitionList, sumValue }) {
+export function Form({ setTransitionList }) {
+
     const [form, setForm] = useState({
         message: "",
         value: "",
@@ -13,17 +14,10 @@ export function Form({ setTransitionList, transitionList, sumValue }) {
         
     })
 
-
     function addTransition() { 
-        setTransitionList([...transitionList, {...form,  id: uuidv4()}])
-        const valueNumber = form.transition === "entrada"
-        ? Number(form.value) 
-        : Number(form.value) * -1
-    
-        sumValue(valueNumber, transitionList)
-  
+        setTransitionList((transitionList) => [...transitionList, {...form,  id: uuidv4()}])
     }
-   
+
    
     
 
@@ -50,7 +44,7 @@ export function Form({ setTransitionList, transitionList, sumValue }) {
             <input type="number" placeholder="Digite aqui o valor" value={form.value}  required onChange={(e) => setForm({...form, value: e.target.value})}/>
             <label>Tipo de valor</label>
             <Select onAction={eventSelect}/>
-            <Button sumValue={sumValue}>Inserir valor</Button>
+            <Button>Inserir valor</Button>
         </StyleForm>
     )
 }

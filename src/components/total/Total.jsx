@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { StyleTotal } from "./StyleTotal";
 
-export function Total({ transitionList, totalValue }) {
+export function Total({  transitionList }) {
+
+    const totalValue = transitionList.reduce((accValue, transition) =>{
+        if (transition.transition === "entrada") {
+            return accValue + Number(transition.value)
+        }else {
+            return accValue - Number(transition.value)
+        }   
+    },0)
 
     return(
         <StyleTotal>
