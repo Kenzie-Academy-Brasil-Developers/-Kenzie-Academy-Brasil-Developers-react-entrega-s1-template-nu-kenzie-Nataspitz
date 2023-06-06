@@ -12,7 +12,7 @@ import { List } from './components/list/List'
 function App() {
   const [transitionList, setTransitionList] = useState([])
   const [totalValue, setTotalValue] = useState(0)
-
+console.log(totalValue, "total value");
   function sumValue(newValue, list) {
     
     const sum = list.reduce((accTransition, transition) => {
@@ -34,7 +34,7 @@ function App() {
     : setTotalValue(newValue )
   }  
 
-  console.log(totalValue, "app");
+  
 
   return (
     <>

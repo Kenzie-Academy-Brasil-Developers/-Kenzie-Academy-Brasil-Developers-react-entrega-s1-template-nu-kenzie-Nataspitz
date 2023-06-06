@@ -14,7 +14,7 @@ export function Form({ setTransitionList, transitionList, sumValue }) {
     })
 
 
-    function addTransition() {
+    function addTransition() { 
         setTransitionList([...transitionList, {...form,  id: uuidv4()}])
         const valueNumber = form.transition === "entrada"
         ? Number(form.value) 

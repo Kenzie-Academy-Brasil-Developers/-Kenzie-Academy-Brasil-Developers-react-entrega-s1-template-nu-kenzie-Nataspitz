@@ -7,14 +7,26 @@ export function List({ transitionList, setTransitionList, totalValue, setTotalVa
     function removeTransition(transitionId) {
         setTransitionList((transitionList)=>
            transitionList.filter(transition =>transition.id !== transitionId )
-        )
+           )
+           console.log(totalValue, "valor total remove");
         
         const sub = transitionList.reduce((accValue, list) =>{
-         const result =  accValue + Number(list.value)
+            const value =  Number(list.value)
+            const typeTransition = list.transition
+            console.log(accValue);
+            
+            if (typeTransition.toLowerCase() === "entrada") {
+                console.log("entrada");
+            }else console.log("saida");
+
+            //const result =  accValue + Number(list.value)
+
          return result 
      },0)
 
+     
      if (transitionList.transition ==="entrada") {
+         console.log(sub - totalValue);
         setTotalValue(totalValue - sub)
      }else setTotalValue(totalValue + sub)
         
