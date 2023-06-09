@@ -24,15 +24,14 @@ export function Form({ setTransitionList }) {
     function submit(e) {
        e.preventDefault()
        addTransition()
-        setForm({
-            message: "",
-            value: "",
-            transition: ""
+       
+        setForm((oldForm) =>{
+            return {...oldForm,
+                message: "",
+                value: "",
+        
+            }
         })
-    }
-
-    function eventSelect(value) {
-        setForm({...form, transition: value})
     }
 
     return(
@@ -43,7 +42,8 @@ export function Form({ setTransitionList }) {
             <label>Valor (R$)</label>
             <input type="number" placeholder="Digite aqui o valor" value={form.value}  required onChange={(e) => setForm({...form, value: e.target.value})}/>
             <label>Tipo de valor</label>
-            <Select onAction={eventSelect}/>
+            <Select onAction={(e) =>  
+                setForm({...form, transition: e.target.value})}/>
             <Button>Inserir valor</Button>
         </StyleForm>
     )
